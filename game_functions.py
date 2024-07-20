@@ -11,7 +11,7 @@ def check_events():
         if event.type == pygame.QUIT:
             sys.exit()
 
-def update_screen(ai_settings: Settings , screen: pygame.surface, ship: Ship):
+def update_screen(ai_settings: Settings , screen: pygame.Surface, ship: Ship):
     """Update images on the screen and flip to the new screen"""
     screen.fill(ai_settings.bg_color)
     ship.blitme()

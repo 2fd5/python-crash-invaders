@@ -2,15 +2,22 @@ import pygame
 
 class Ship():
 
-    def __init__(self, screen) -> None:
+    def __init__(self, screen: pygame.Surface) -> None:
         """Initialize the ship and set its starting position."""
-        self.screen = screen
+        self.screen: pygame.surface = screen
 
         # Load the ship image and get its rect.
-        self.image = pygame.image.load('images/icons/ffffff/transparent/1x1/lorc/deathcab.png')
-        self.image.convert()
-        self.rect = self.image.get_rect()
-        self.screen_rect = screen.get_rect()
+        self.image: pygame.Surface = pygame.image.load('images/icons/ffffff/transparent/1x1/lorc/deathcab.png').convert()
+        self.original_rect: pygame.Rect = self.image.get_rect()
+
+        # Calculate new dimensions for the image (half size)
+        self.new_width = self.original_rect.width //2
+        self.new_height = self.original_rect.height //2
+
+        # Scale the image to the new dimension
+        self.image = pygame.transform.scale(self.image, (self.new_width, self.new_height))
+        self.rect: pygame.Rect = self.image.get_rect()
+        self.screen_rect: pygame.Rect = screen.get_rect()
 
         # Start each new ship at the bottom center of the screen
         self.rect.centerx = self.screen_rect.centerx
