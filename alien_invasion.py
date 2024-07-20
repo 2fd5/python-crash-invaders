@@ -12,9 +12,6 @@ def run_game():
         (ai_settings.screen_width, ai_settings.screen_height))
     pygame.display.set_caption("Mushroom Invasion")
 
-    # Set background color
-    bg_color = (230, 230, 230)
-
     # Start the main loop for the game.
     while True:
 
