@@ -5,6 +5,8 @@
         "centerx",
         "deathcab",
         "deathcap",
+        "KEYDOWN",
+        "KEYUP",
         "lorc",
         "pygame"
     ]
