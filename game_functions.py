@@ -5,11 +5,16 @@ import pygame
 from settings import Settings
 from ship import Ship
 
-def check_events():
+def check_events(ship: Ship):
     """Respond to keypress and mouse events."""
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
+        
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_RIGHT:
+                # Move the ship to the right
+                ship.rect.centerx += 1
 
 def update_screen(ai_settings: Settings , screen: pygame.Surface, ship: Ship):
     """Update images on the screen and flip to the new screen"""
